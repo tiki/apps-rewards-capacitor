@@ -1,4 +1,9 @@
-.PHONY: vue3 vue2 clean
+ifeq ($(OS),Windows_NT)
+SHELL := pwsh.exe
+.SHELLFLAGS := -NoProfile -Command
+endif
+
+.PHONY: lint fmt vue3 vue3-example vue3-example-android vue3-example-ios vue2 vue2-example vue2-example-android vue2-example-ios clean
 
 lint:
 	npx eslint "./src/**/*.{ts,js}"
@@ -7,9 +12,15 @@ fmt:
 	npx prettier "./src/**/*.{css,html,ts,js,java}" --write
 
 vue3: clean
+ifeq ($(OS),Windows_NT)
+	Copy-Item -Force "./vue3/main.ts" ./src/main.ts
+	Copy-Item -Force "./vue3/package.json" ./package.json
+	Copy-Item -Force "./vue3/vite.config.ts" ./vite.config.ts
+else
 	cp -f ./vue3/main.ts ./src/main.ts
 	cp -f ./vue3/package.json ./package.json
 	cp -f ./vue3/vite.config.ts ./vite.config.ts
+endif
 	npm install
 	npm run build
 
@@ -26,9 +37,15 @@ vue3-example-ios: vue3-example
 	cd example/vue3 && npx cap run ios
 
 vue2: clean
+ifeq ($(OS),Windows_NT)
+	Copy-Item -Force "./vue2/main.ts" ./src/main.ts
+	Copy-Item -Force "./vue2/package.json" ./package.json
+	Copy-Item -Force "./vue2/vite.config.ts" ./vite.config.ts
+else
 	cp -f ./vue2/main.ts ./src/main.ts
 	cp -f ./vue2/package.json ./package.json
 	cp -f ./vue2/vite.config.ts ./vite.config.ts
+endif
 	npm install
 	npm run build
 
@@ -45,5 +62,10 @@ vue2-example-ios: vue2-example
 	cd example/vue2 && npx cap run ios
 
 clean:
+ifeq ($(OS),Windows_NT)
+	".\src\main.ts", "vite.config.ts", "package.json", "package-lock.json" | ForEach { if (Test-Path $$PSitem) { Remove-Item $$PSitem } }
+	".\node_modules", ".\dist", ".\docs", ".\example\vue2\dist", ".\example\vue3\dist" | ForEach { if (Test-Path $$PSitem) { Remove-Item -Recurse $$PSitem } }
+else
 	rm -f ./src/main.ts vite.config.ts package.json package-lock.json
 	rm -rf node_modules/ dist/ docs/ example/vue2/dist/ example/vue3/dist/
+endif
