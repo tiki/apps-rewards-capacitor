@@ -14,9 +14,12 @@ const accounts = [gmail, walmart, amazon, dg]
 
 <template>
     <div class="tiki-card-accounts">
-        <div class="image-container" v-for="account of accounts" @click="$emit('company', account)">
+        <div v-for="account of accounts" @click="$emit('company', account)" >
+          <div class="image-container" >
             <img :src="account.icon" alt=""  class="tiki-card-img">
             <icon-alert class="svg-icon"/>
+          </div>
+          <figcaption class="tiki-account-caption">{{ account.name }}</figcaption>
         </div>
     </div>
 </template>
@@ -39,17 +42,26 @@ const accounts = [gmail, walmart, amazon, dg]
     border-radius: 0.625em;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 5%);
     border: 1px solid var(--tiki-secondary-text-color);
-    align-items: center;
     font-weight: 500;
     margin-bottom: 1.2em;
-    padding: 1.8em 0;
+    padding: 1.8em 1em;
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .tiki-card-img{
     border-radius: 1.2em;
     padding: 0.5em 1em;
-    width: 5.6em;
+    width: 5em;
 }
+
+.tiki-account-caption {
+  line-height: normal;
+  color: var(--tiki-secondary-text-color);
+  font-weight: 500;
+}
+
+
 </style>

@@ -24,10 +24,10 @@
     border: 1px solid var(--tiki-secondary-text-color);
     display: flex;
     align-items: center;
-    font-weight: 500;
     margin-top: 1em;
     padding: 1.8em 0;
     justify-content: space-around;
+    font-size: 1.05em;
 }
 .tiki-card-text{
     color: var(--tiki-secondary-text-color);
@@ -36,7 +36,7 @@
 
 .tiki-accent-text{
     color: var(--tiki-success-color);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .tiki-card-text p {

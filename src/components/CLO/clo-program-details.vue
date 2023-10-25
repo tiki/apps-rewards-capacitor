@@ -17,7 +17,7 @@ import {
   <div class="tiki-program-details">
     <div class="tiki-what-data">
       <icon-account />
-      <h2>What data do we collect?</h2>
+      <h3>What data do we collect?</h3>
       <p class="tiki-program-details-subtitle">
         Learn about how your data powers your cashback connections
       </p>
@@ -31,14 +31,14 @@ import {
           <span>Receipts</span>
         </div>
         <div class="tiki-data-usage">
-          <icon-info />
+          <icon-info class="svg-icon"/>
           <span>User ID</span>
         </div>
       </div>
     </div>
 
     <div class="tiki-data-usage-container">
-      <h2>How is that data used?</h2>
+      <h3>How is that data used?</h3>
       <div>
         <icon-money />
         <span>Find Cashback rewards</span>
@@ -81,13 +81,12 @@ import {
   align-items: center;
   font-weight: 500;
   margin-bottom: 1.2em;
-  margin-top: 1em;
   padding: 1.8em 0 0 0;
   display: flex;
   flex-direction: column;
 }
 
-h2 {
+h3 {
   margin: 0.2em;
 }
 
@@ -99,7 +98,7 @@ span {
   display: flex;
   flex-wrap: wrap;
   width: 85%;
-  margin: 1em auto;
+  margin: 1em 2em;
 }
 
 .tiki-data-usage {
@@ -111,13 +110,14 @@ span {
 .tiki-program-details-subtitle {
   margin: 0;
   font-weight: 500;
+  font-size: 0.85em;
 }
 
 .tiki-data-usage-container {
   margin: 2em;
 }
 
-.tiki-data-usage-container h2 {
+.tiki-data-usage-container h3 {
     margin-bottom: 1.2em;
 }
 .tiki-data-usage-container div {
@@ -133,10 +133,14 @@ span {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid var(--tiki-secondary-text-color);
-  padding: 1em;
+  padding: 0.8em;
 }
 .tiki-action-alert {
   color: var(--tiki-error-color);
   border: none;
+}
+
+.svg-icon{
+  margin-top: 0.15em;
 }
 </style>

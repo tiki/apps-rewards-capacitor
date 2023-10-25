@@ -52,5 +52,6 @@ defineProps({
     margin-bottom: 0.8em;
     text-align: center;
     padding: 0 1.2em;
+    font-size: 0.85em;
 }
 </style>

@@ -50,6 +50,6 @@
   line-height: var(--tiki-line-height-sm);
   color: var(--tiki-secondary-text-color);
   font-weight: 500;
-  margin: 2em 0.5em 2.5em 1.5em;
+  margin: 1.5em 0.5em 2.2em 1.5em;
 }
 </style>

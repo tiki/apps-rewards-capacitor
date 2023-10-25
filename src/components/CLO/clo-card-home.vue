@@ -35,8 +35,8 @@
     border: 1px solid var(--tiki-secondary-text-color);
     display: flex;
     align-items: center;
-    font-size: 1.1em;
-    font-weight: 600;
+    font-size: 1em;
+    font-weight: 700;
     margin-top: 3em;
     margin-bottom: 2.3em;
     padding: 1.5em 0;
@@ -45,9 +45,9 @@
 }
 span{
     display: block;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 0.2em;
-    font-size: 1.125em;
+    font-size: 1.2em;
 }
 .tiki-span-accent{
     color: var(--tiki-success-color);
