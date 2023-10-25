@@ -22,7 +22,7 @@
 <style scoped>
 .tiki-offer-card {
     width: 100%;
-    padding: 1.25em;
+    background-color: var(--tiki-primary-background-color);
     box-sizing: border-box;
     border-radius: 0.625em;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 5%);
