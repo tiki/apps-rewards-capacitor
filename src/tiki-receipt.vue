@@ -25,7 +25,7 @@ const props = defineProps({
   present: {
     type: Boolean,
     default: false,
-  },
+  }
 });
 
 const navigate = new Navigate();
@@ -49,10 +49,11 @@ watch(
     show.value = present;
   },
 );
+
 </script>
 
 <template>
-    <nav-view :show="present" @update:show="update" />
+    <nav-view :show="present" @update:show="update"/>
 </template>
 
 <style scoped>

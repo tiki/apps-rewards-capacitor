@@ -6,17 +6,23 @@
 <script setup lang="ts">
 import { inject } from "vue";
 import { InjectKey } from "@/utils";
-import { type Navigate, NavDef } from "@/nav";
-import { SheetHome } from "@/components";
+import { NavDef, type Navigate } from "@/nav";
+import { CloSheetHome } from "@/components";
+import { AccountType } from "@mytiki/capture-receipt-capacitor";
 const navigate: Navigate = inject(InjectKey.navigate)!;
+
+const emits = defineEmits(['company'])
+
+const companyNavigation = (company: AccountType) =>{
+  emits('company', company)
+  navigate.to(NavDef.CloCompany)
+}
 </script>
 
 <template>
-  <sheet-home
-    @close="navigate.clear()"
-    @learn="navigate.to(NavDef.Learn)"
-    @withdraw="navigate.clear()"
-    @gmail="navigate.to(NavDef.ListGoogle)"
-    @retailer="navigate.to(NavDef.ListRetailer)"
+  <clo-sheet-home 
+  @details="navigate.to(NavDef.CloDetails)"
+  @close="navigate.clear()"
+  @company="companyNavigation"
   />
 </template>
